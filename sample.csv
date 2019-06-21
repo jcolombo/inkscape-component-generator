@@ -1,0 +1,8 @@
+id,name,color,icon,layers,desc
+1,Joel,#ff0000,icon1.png,layer1|layer2,"Some text with a comma, and an & for special chars"
+2,John,#0087ff,icon2.png,layer1|layer3,
+3,Susan,#d800ff,icon3.png,layer2|layer3,
+4,David,#faff00,icon4.png,layer1|layer2,
+5,Harvey,#00ff50,icon5.png,layer1|layer2|layer4,
+6,Kathy,#ddff50,icon1.png,,"Short Description, No Layer Restrictions"
+

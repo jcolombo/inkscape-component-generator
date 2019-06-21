@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension" -->
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <_name>Component Generator</_name>
+    <id>colombo.component-generator.export.ext</id>
+    <dependency type="executable" location="extensions">component-generator.py</dependency>
+    <dependency type="executable" location="extensions">inkex.py</dependency>
+    <_param name="info1" type="description" appearance="header">Generate a series of files based on row replacements from a CSV file</_param>
+    <!-- <param name="what" type="string" _gui-text="What would you like to greet?">World</param> -->
+    <param name="tabset" type="notebook">
+        <page name="tabA" _gui-text="Input">
+            <param name="vartype" type="optiongroup" _gui-text="Replace values from CSV using the...">
+                <_option value="column">CSV Column Position</_option>
+                <_option value="name">CSV Column Name</_option>
+            </param>
+            <_param name="info1" type="description" xml:space="preserve">If using column name, the first row of the CSV must contain column names.</_param>
+            <param name="datafile" type="string" _gui-text="CSV File:"></param>
+            <_param name="info2" type="description">The data file must be a CSV with comma separated columns</_param>
+            <param name="specialchars" type="boolean" _gui-text="Handle special XML characters">true</param>
+            <param name="sep" type="description">---------------------------------------------------------------------------------------------------------</param>
+            <_param name="info3" type="description" xml:space="preserve">Extra text-based values to be replaced:
+Example... value1=>columnX|value2=>columnY</_param>
+            <param name="extravars" type="string" gui-text=" "></param>
+            <_param name="helpText2" type="description" xml:space="preserve">Replacing extra text-based values...
+
+Add all the extra text to be replaced in a line separated by "|", pointing to the replace-with column using "=>" (name or number depending on the choice).
+Do not use spaces if that is not part of the replacement or column name!
+For example, we can make the red and green colors as variables to be replaced by some other colors from the CSV at the columns "secure color" and "sector color":
+#ff0000=>secure color|#00ff00=>sector color
+All red and green elements will now have new colors based on their corresponding column values.
+
+If you are not sure about the usable variables, run it on preview mode and the replaceable texts will be shown to you.</_param>
+        </page>
+        <page name="tabB" _gui-text="Layers">
+            <param name="layerCol" type="string" _gui-text="Layer Filter Column:"></param>
+            <_param name="layerColInfo" type="description" xml:space="preserve">Enter the column name (or number depending on input setting) that contains the layer prefixes to include.
+Example Column Value: layer1|layer2  = will include any layers that start with [layer1] and [layer2]
+All layers prefixed with [fixed] or [*] will always be included. All layers without a bracket [key] will be left off (hidden)
+For a row to include multiple layer keys... separate them by a | like this myKey1|myKey2
+Each layer does not need its own key, any layer prefixed with the matching keys will be included (acting like a layer group)
+
+Leaving this blank will ignore prefixes and simply include all visible layers as you see them.</_param>
+            <param name="includeHidden" type="boolean" _gui-text="Include Hidden Prefixed Layers">true</param>
+            <_param name="layerColInfo" type="description" xml:space="preserve">When using the layer filtering, Checking this box will make ALL MATCHING [key] layers visible even if hidden in the layers panel</_param>
+            <param name="includeEmptyLayers" type="boolean" _gui-text="Include ALL visible layers if none are specified in a row">false</param>
+            <_param name="layerColInfo" type="description" xml:space="preserve">If a record in the CSV does NOT have any layer keys specified in that column, it will hide all visible layers with custom [key] prefixes (it still includes non-prefixed plus [*] and [fixed] layers).
+It will NOT toggle any hidden layers as visible</_param>
+        </page>
+        <page name="tabC" _gui-text="Output">
+            <param name="format" type="enum" _gui-text="Export As...">
+                <item value="PDF">PDF</item>
+                <item value="SVG">SVG</item>
+                <item value="PS">PS</item>
+                <item value="EPS">EPS</item>
+                <item value="PNG">PNG</item>
+                <item value="JPG">JPG</item>
+            </param>
+            <param name="dpi" type="int" _gui-text="DPI (for PNG and JPG):" min="1" max="3000">90.0</param>
+            <param name="output" type="string" _gui-text="Output File Pattern:">$HOME/component-output/%VAR_1%.pdf</param>
+            <param name="preview" type="boolean" _gui-text="Preview (make and show only the first record)"></param>
+        </page>
+        <page name="tabD" _gui-text="Help">
+            <_param name="helpTxt" type="description" xml:space="preserve">How vars are replaced?
+
+The replacer will walk through each data column, line-by-line, and will try to replace the %VAR_#% in the SVG by the column value.
+If you selected "Column Position", # is the column number (1 is first column).
+If you selected "Column Name", # is the column name, using the first row of the CSV.
+If you enabled the handling of special characters, characters like &amp; are replaced with entities like &amp;amp; as required by the SVG standard. In most cases, you should enable this option.
+</_param>
+        </page>
+    </param>
+    <effect needs-live-preview="false" needs-document="true">
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu _name="Export"/>
+        </effects-menu>
+    </effect>
+    <script>
+        <command reldir="extensions" interpreter="python">component-generator.py</command>
+    </script>
+</inkscape-extension>
