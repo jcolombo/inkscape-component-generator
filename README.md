@@ -37,6 +37,9 @@ Installed Globally : /usr/share/inkscape/extensions
 Installed For User : /home/<Username>/.config/inkscape/extensions
 ```
 
+- In order to do JPG output, you will need the "Convert" application from the ImageMagick suite
+- There is better user interaction if you have "Zenity" installed, but it is not required to run the extension
+
 # Usage
 
 There is an example CSV file included in this repository that will be referenced here
