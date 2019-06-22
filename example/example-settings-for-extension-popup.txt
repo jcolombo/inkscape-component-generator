@@ -1,0 +1,29 @@
+Settings for the Component Generator:
+Using the following settings on the loaded playing-card.svg file
+Will generate the 4 example cards included (they will be overwritten when you run it if you dont change the output pattern)
+
+INPUT TAB
+------------------------------------------------
+- Replace Using:  Check the "CSV Column Names" option
+- CSV FILE= Put the full file path to the included data.csv: /path/to/the/example/data.csv
+- Check the
+- Enter the following exactly (copy-paste no spaces at the ends) into the Extra text-based values field:
+    #d0d0d0=>background_color|placeholder1.png=>main picture|placeholder2.png=>corner_icon
+
+LAYERS TAB
+------------------------------------------------
+Enter the word "layers" into the field (no quotation marks)
+Leave the hidden checkbox selected, do not check the second one
+
+OUTPUT TAB
+------------------------------------------------
+- From the export as... choose PNG
+- For the DPI, set it to 300 (that is general print quality)
+- Enter the path to the output folder where you want all your png images to generate
+   /path/to/output/card_%VAR_id%.png
+
+The %VAR_id% will replace with the id number from the CSV to create 4 files... card_1.png, card_2.png, etc
+
+PRESS APPLY... Files will generate and be in the output folder.
+Play with the CSV and the sample SVG file to see what else you can do with it !
+

@@ -1,0 +1,5 @@
+id,label,suit,number,background_color,main picture,corner_icon,description,layers
+1,Ace,Circle,A,#ffd593,image1.png,image2.png,"The Ace Card",left|right
+2,Nine,Square,9,#b2ffd8,image2.png,image3.png,"The 9 Card",left|top
+3,Four,Star,4,#d2ffc6,image3.png,image4.png,"The 4 Card",right|bottom
+4,One,Cube,1,#ffd3d8,image4.png,image5.png,"The ONE Card",top|bottom
