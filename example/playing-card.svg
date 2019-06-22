@@ -55,7 +55,7 @@
      inkscape:window-x="59"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g4321" /><g
+     inkscape:current-layer="layer7" /><g
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="[*] Background Color"
@@ -201,7 +201,7 @@
      inkscape:groupmode="layer"
      id="layer7"
      inkscape:label="[top] Top Area 1"
-     style="display:inline"><image
+     style="display:none"><image
        sodipodi:absref="/srv/python/inkscape/component-generator/example/images/placeholder2.png"
        xlink:href="images/placeholder2.png"
        style="display:inline"
