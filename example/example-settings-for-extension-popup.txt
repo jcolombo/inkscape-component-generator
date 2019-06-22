@@ -1,5 +1,7 @@
 Settings for the Component Generator:
 Using the following settings on the loaded playing-card.svg file
+Be sure the example /images folder is in the same directory as the playing-card.svg file (images are linked relative to the svg file)
+
 Will generate the 4 example cards included (they will be overwritten when you run it if you dont change the output pattern)
 
 INPUT TAB
